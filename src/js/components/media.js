@@ -10,7 +10,7 @@ const onLoadPage = async () => {
   await newApiService.fetchGetGenres();
 
   const data = await newApiService.fetchGetMediaTrending(1);
-  // console.log('data', data);
+
   initPagination(data.total_results);
 
   const newData = newPrepareData.prepareData(data);
@@ -19,8 +19,7 @@ const onLoadPage = async () => {
 onLoadPage();
 
 export function appendMediaMarkup({ results }) {
-  return outputRefs.innerHTML = itemMediaTpl(results);
+  return (outputRefs.innerHTML = itemMediaTpl(results));
 }
 
 export default onLoadPage;
-// export default {appendMediaMarkup};
